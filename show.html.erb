@@ -1,0 +1,60 @@
+
+<div class="bodycontent">
+
+
+    
+    
+<p id="notice"><%= notice %></p>
+
+    <h2 class="h2">  Events <center><t> <%= @customer.Firstname+" "+@customer.Lastname %></t></center> </h2> 
+
+    <button style="float: left;"><%= link_to 'Back', customers_path %></button>
+
+    <button style="float: right;">    <%= link_to 'New Event', new_event_path %> </button>
+
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th>Event type</th>
+      <th>No of guest</th>
+      <th>Venue</th>
+      <th>Event date</th>
+      <th>Time</th>
+      <th>Other services</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <%    @indicator = 0
+
+            @cus_event.each do |event| %>
+      <tr>
+          <% @indicator = @indicator + 1 %>
+        <td><%= event.event_type %></td>
+        <td><%= event.no_of_guest %></td>
+        <td><%= event.venue %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.time %></td>
+        <td><%= event.other_services %></td>
+        <td><%= event.Total %></td>
+          <td><button><%= link_to 'Show', event %></button>
+              <button><%= link_to 'Edit', edit_event_path(event) %></button>
+              <button><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+        
+    <% end  %>
+  </tbody>
+</table>
+
+    <h2><%= if @indicator == 0 
+"no event yet"
+end %></h2>
+<br>
+
+
+    
+</div>    
+
