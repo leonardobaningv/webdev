@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bigchabea</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+    <style>
+        body{
+    background-color: aqua;
+    width: 90%;
+    margin: auto;
+}
+
+.header-logo{
+    text-align: center;
+    background-color: beige;
+    border-style: solid;
+    width: 60%;
+    border-radius: 10pt;
+}
+
+.image{
+    height: 25%;
+    width: 70%;
+}
+
+
+.nav{   
+    background-color: darkslategrey;
+    width: 90%;
+    border-radius: 5pt;
+    margin: auto;
+    margin-top: 1%;
+}
+
+
+
+
+.bodycontent{
+    width: 90%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.table{
+/*    background-color: aquamarine; */
+    width: 100%;
+    text-align: center;
+}
+
+thead{
+    background-color: chocolate;
+}
+
+.a{
+    text-decoration: none;
+}
+
+.h2{
+    margin-top: -.1%;
+    margin-bottom: -.1%;
+}
+
+
+a#nav:link, a#nav:visited{
+background-color: chocolate;
+color: white;
+padding: .9% .9%;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+margin: .5%;
+font-size: 15pt;
+border-radius: 5pt;
+}
+
+a#nav:hover{
+background-color: darkkhaki;
+color: black;
+border-radius: 5pt; 
+}
+
+    </style>
+
+    
+    
+    
+<body class="body">
+
+        <center>
+    <div class="header-logo">
+
+        <img class="image" src="" />
+    </div>
+    </center>
+    
+    <div class="nav">
+                <a id="nav" href="/customers"> Customers </a>
+                <a id="nav" href="/events"> Events </a>
+                <a id="nav" href="/foods"> Dishes </a>
+                <a id="nav" href="homepage.php"> Combos </a>
+                <a id="nav" href="homepage.php"> Sales </a>
+                <a id="nav" href="homepage.php"> Other Services </a>
+                
+                <a id="nav" href="homepage.php" style="float: right;">Log Out</a>
+    </div>
+
+
+    
+<%= yield %>
+
+    
+
+    
+    
+</body>
+</html>
