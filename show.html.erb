@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @food.name %>
+  <strong>Food:</strong>
+  <%= @order_list.food_id %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @food.description %>
+  <strong>Event:</strong>
+  <%= @order_list.event_id %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @food.status %>
+  <strong>Quantity:</strong>
+  <%= @order_list.quantity %>
 </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @food.price %>
-</p>
-
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<%= link_to 'Edit', edit_order_list_path(@order_list) %> |
+<%= link_to 'Back', order_lists_path %>

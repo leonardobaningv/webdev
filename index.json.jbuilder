@@ -1,1 +1,1 @@
-json.array! @foods, partial: 'foods/food', as: :food
+json.array! @order_lists, partial: 'order_lists/order_list', as: :order_list
