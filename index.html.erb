@@ -1,46 +1,38 @@
 <div class="bodycontent">
-
 <p id="notice"><%= notice %></p>
 
-<h2 class="h2"> Events</h2>
-
-    <button style="float: right;">    <%= link_to 'New Event', new_event_path %> </button>
-
-    
+<h2 class="h2">Product List</h2>
+    <button style="float: right;"><%= link_to 'New Product', new_food_path %></button>
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
-      <th>Event type</th>
-      <th>No of guest</th>
-      <th>Venue</th>
-      <th>Event date</th>
-      <th>Time</th>
-      <th>Other services</th>
-      <th>Total</th>
-      <th>Actions</th>
+      <th>category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Price</th>
+      <th>Action</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% @foods.each do |food| %>
       <tr>
-          <% @customers.each do |cus|
-    if event.customer_id == cus.id %>
-          <td><a href="/customers/<%= cus.id %>"><%= cus.Firstname+" "+cus.Lastname %> </a></td>
-          <% end
-            end %>
-          
-        <td><%= event.event_type %></td>
-        <td><%= event.no_of_guest %></td>
-        <td><%= event.venue %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.time %></td>
-        <td><%= event.other_services %></td>
-        <td><%= event.Total %></td>
-        <td><%= link_to 'Show', event %>
-            <%= link_to 'Edit', edit_event_path(event) %>
-            <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= food.category %></td>
+        <td><%= food.name %></td>
+        <td><%= food.description %></td>
+        <td><%= if food.status == 0 
+                "not available"
+                else
+                "available"
+                end
+
+            %>
+        </td>
+        <td><%= food.price %></td>
+        <td><%= link_to 'Show', food %>
+            <%= link_to 'Edit', edit_food_path(food) %>
+            <%= link_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -49,5 +41,4 @@
 <br>
 
 
-    
-</div>    
+</div>

@@ -1,46 +1,35 @@
-
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
+<%= form_for(@food) do |f| %>
+  <% if @food.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
       <ul>
-      <% @event.errors.full_messages.each do |message| %>
+      <% @food.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-
   <div class="field">
-      <%= f.label :customer %><br>
-      <%= f.select :customer_id, Customer.all.map{ |i| [i.Firstname+" "+i.Lastname,i.id] } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :event_type %><br>
-    <%= f.text_field :event_type %>
+      <%= f.label :category %><br>
+      <%= f.select :category, ['vegetables','pork','chicken', 'fish/seafood', 'soup/pasta','beef','salad/dessert','beverage'] %>
   </div>
   <div class="field">
-    <%= f.label :no_of_guest %><br>
-    <%= f.number_field :no_of_guest %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :venue %><br>
-    <%= f.text_field :venue %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :event_date %><br>
-    <%= f.date_select :event_date %>
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
   </div>
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
-  </div>
-  <div class="field">
-    <%= f.label :other_services %><br>
-    <%= f.text_field :other_services %>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
   </div>
   <div class="actions">
     <%= f.submit %>
