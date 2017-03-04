@@ -1,0 +1,74 @@
+<div class="bodycontent">
+
+    <p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Event type:</strong>
+    <%= @event.event_type %>
+
+    <strong>No of guest:</strong>
+    <%= @event.no_of_guest %>
+
+    <strong>Venue:</strong>
+    <%= @event.venue %>
+
+    <strong>Event date:</strong>
+    <%= @event.event_date %>
+
+    <strong>Time:</strong>
+    <%= @event.time %>
+
+    <strong>Other services:</strong>
+    <%= @event.other_services %>
+
+
+<% link_to 'Edit', edit_event_path(@event) %> 
+<% link_to 'Back', events_path %>
+</p>
+    
+    
+    <p id="notice"><%= notice %></p>
+
+    <h2 class="h2">List of Orders</h2>
+
+    <button style="float:right;"><%= link_to 'Add order', new_order_list_path %></button>
+    <button style="float:left;"><a href="/customers/<%= @event.customer_id %>"> back </a></button>
+
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th>category</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order_list| %>
+      <tr>
+        <% @foods.each do |f|
+    
+    if order_list.food_id == f.id %>
+          <td><%= f.category %></td>
+          <td> <%= f.name %></td>
+              
+        <%  end  
+            end
+        %>
+        <td><%= order_list.quantity %></td>
+        <td><% link_to 'Show', order_list %>
+            <% link_to 'Edit', edit_order_list_path(order_list) %>
+            <%= link_to 'delete', order_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+    
+    
+    
+</div>

@@ -1,0 +1,53 @@
+<div class="bodycontent">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="h2"> Events</h2>
+
+    <button style="float: right;">    <%= link_to 'New Event', new_event_path %> </button>
+
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Event type</th>
+      <th>No of guest</th>
+      <th>Venue</th>
+      <th>Event date</th>
+      <th>Time</th>
+      <th>Other services</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+          <% @customers.each do |cus|
+    if event.customer_id == cus.id %>
+          <td><a href="/customers/<%= cus.id %>"><%= cus.Firstname+" "+cus.Lastname %> </a></td>
+          <% end
+            end %>
+          
+        <td><%= event.event_type %></td>
+        <td><%= event.no_of_guest %></td>
+        <td><%= event.venue %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.time %></td>
+        <td><%= event.other_services %></td>
+        <td><%= event.Total %></td>
+        <td><%= link_to 'Show', event %>
+            <%= link_to 'Edit', edit_event_path(event) %>
+            <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+    
+</div>    

@@ -1,0 +1,48 @@
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+      <%= f.label :customer %><br>
+      <%= f.select :customer_id, Customer.all.map{ |i| [i.Firstname+" "+i.Lastname,i.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.text_field :event_type %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_guest %><br>
+    <%= f.number_field :no_of_guest %>
+  </div>
+  <div class="field">
+    <%= f.label :venue %><br>
+    <%= f.text_field :venue %>
+  </div>
+  <div class="field">
+    <%= f.label :event_date %><br>
+    <%= f.date_select :event_date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :other_services %><br>
+    <%= f.text_field :other_services %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
